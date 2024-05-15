@@ -1,24 +1,33 @@
-package com.encapsulation;
-class TestEncapsulation
-{
-    //TestEncapsulation t=new TestEncapsulation();
-    public static void main(String[] args) {
-        Student s=new Student();
-        s.setName("Nirmal");
-        System.out.println(s.getName());
-    }
+package com.staticBlock;
 
+public class Student {
+    String name;
+    int rollNo;
+    static String cllgName;
 
-}
-public  class Student
-{
-    private String name;
-    public String getName()
-    {
-        return name;
-    }
-    public void setName(String name)
-    {
+    //to set unique rollNo
+    static int counter=0;
+    public Student(String name){
         this.name=name;
+        this.rollNo=setRollNo();
     }
+    static int setRollNo()
+    {
+        counter++;
+        return counter;
+    }
+
+    //static method
+    static void  setCllgName(String name){
+        cllgName=name;
+    }
+
+    //instance method
+    void getStudentInfo()
+    {
+        System.out.println("name:"+this.name);
+        System.out.println("rollNo:"+this.rollNo);
+        System.out.println("cllgName:"+cllgName);
+    }
+
 }
